@@ -1,0 +1,11 @@
+# Write your MySQL query statement belowwith 
+with sample as
+(
+    select customer_number,count(distinct order_number) as c
+    from Orders
+    group by customer_number
+    order by c desc
+)
+select customer_number
+from sample
+limit 1;
